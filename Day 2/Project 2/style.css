@@ -10,7 +10,8 @@
     height: 100vh;
     background: #e3f9ff;
     display: flex;
-    align-items: center;
+    align-items:center;
+    justify-content: center;
 }
 
 .calculator{
