@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Caledar using JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="calendar">
+
+            <div class="left">
+                <p id="date">01</p>
+                <p id="day">Sunday</p>
+            </div>
+            <div class="right">
+                <P id="month">JAN</P>
+                <p id="year">2024</p>
+            </div>
+        
+        </div>
+        <!-- <div class="bottom">
+            <p style="color:red">10:30</p>
+        </div> -->
+    </div>
+
+    <script>
+     var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+     var monthShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+     let current_date=new Date();
+     document.getElementById('date').innerHTML=(current_date.getDate()<10?"0":"")+current_date.getDate();
+     document.getElementById('day').innerHTML=days[current_date.getDay()];
+     document.getElementById('month').innerHTML=monthShort[current_date.getMonth()];
+     document.getElementById('year').innerHTML=current_date.getFullYear();
+    </script>
+</body>
+</html>
