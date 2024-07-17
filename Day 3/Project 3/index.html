@@ -20,19 +20,27 @@
             </div>
         
         </div>
-        <!-- <div class="bottom">
-            <p style="color:red">10:30</p>
-        </div> -->
+        <div class="bottom">
+            <p>Time=</p>
+            <p id="time" >2025</p>
+        </div>
     </div>
 
     <script>
      var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
      var monthShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
      let current_date=new Date();
+     function time(){
+        const now=new Date();
+        const timestring=now.getHours()+':'+now.getMinutes()+':'+now.getSeconds();
+        document.getElementById("time").innerHTML=timestring;
+     }
+     setInterval(time,1000);
      document.getElementById('date').innerHTML=(current_date.getDate()<10?"0":"")+current_date.getDate();
      document.getElementById('day').innerHTML=days[current_date.getDay()];
      document.getElementById('month').innerHTML=monthShort[current_date.getMonth()];
      document.getElementById('year').innerHTML=current_date.getFullYear();
+    //  document.getElementsByClassName('bottom').innerHTML='a';
     </script>
 </body>
 </html>
