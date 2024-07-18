@@ -1,0 +1,18 @@
+#draggable {
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    cursor: grab;
+  }
+  
+  #dropTarget {
+    width: 200px;
+    height: 200px;
+    background-color: lightgray;
+    margin-top: 20px;
+  }
+  
+  .drag-over {
+    border: 2px dashed black;
+  }
+  
