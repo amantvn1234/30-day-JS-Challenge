@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launching Soon Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="container">
+    <img src="Launching_page_img/logo2.png" alt="logo" class="logo">
+    <div class="content">
+        <p>Website is under maintainance</p>
+        <h1>We're <span>Launching</span> Soon</h1>
+        <div class="launch-time">
+            <div >
+                <p id="days">00</p>
+                <span>Days</span>
+            </div>
+            <div>
+                <p id="hours">00</p>
+                <span>Hours</span>
+            </div>
+            <div>
+                <p id="minutes">00</p>
+                <span>Minutes</span>
+            </div>
+            <div>
+                <p id="seconds">00</p>
+                <span>Seconds</span>
+            </div>
+
+        </div>
+        <button onclick="explain()" >learn more <img src="./Launching_page_img/triangle.png" ></button>
+    </div>
+    <img src="Launching_page_img/rocket.png" class="rocket">
+   </div> 
+
+   <script>
+    var countdowndate= new Date("Aug 10, 2024 00:00:00").getTime();
+    var x=setInterval(function(){
+        var now=new Date().getTime();
+        var distance=countdowndate-now;
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML=days;
+        document.getElementById("minutes").innerHTML=minutes;
+        document.getElementById("hours").innerHTML=hours;
+        document.getElementById("seconds").innerHTML=seconds;
+        if(distance<=0){
+            clearInterval(x);
+            document.getElementById("days").innerHTML='00';
+            document.getElementById("minutes").innerHTML='00';
+            document.getElementById("hours").innerHTML='00';
+            document.getElementById("seconds").innerHTML='00';
+        }
+    },1000)
+     
+    let toggle=0;
+    function explain(){
+        const p1=document.createElement('p');
+        p1.innerText="Hello connection, I am planning to launch my Portfolio Website."
+        if(toggle===0){            
+            document.getElementsByClassName("content")[0].appendChild(p1);
+            toggle=1;
+        }
+        // else{
+        //     document.getElementsByClassName("content")[0].removeChild(p1);
+         //    toggle=0;
+        // }        
+    }
+   </script>
+</body>
+</html>
