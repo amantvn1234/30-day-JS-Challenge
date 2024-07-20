@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Select Box Design</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="hero">
+        <div class="selector">
+
+            <div id="selectField">
+                <p id="selectText">Select Social Media</p>
+                <img src="SelectMenu_Img/arrow.png" alt="arrow" id="arrowIcon" />
+            </div>
+
+            <ul id="list" class="hide">
+                <li class="options">
+                    <img src="SelectMenu_Img/facebook.png" />
+                    <p>Facebook</p>
+                </li>
+                <li class="options">
+                    <img src="SelectMenu_Img/pinterest.png" />
+                    <p>Pinterest</p>
+                </li>
+                <li class="options">
+                    <img src="SelectMenu_Img/twitter.png" />
+                    <p>Twitter</p>
+                </li>
+                <li class="options">
+                    <img src="SelectMenu_Img/youtube.png" />
+                    <p>Youtube</p>
+                </li>
+                <li class="options">
+                    <img src="SelectMenu_Img/whatsapp.png" />
+                    <p>Whatsapp</p>
+                </li>
+                <li class="options">
+                    <img src="SelectMenu_Img/instagram.png" />
+                    <p>Instagram</p>
+                </li>
+            </ul>
+      </div>
+    </div>
+
+    <script>
+      var selectField = document.getElementById("selectField");
+      var selectText = document.getElementById("selectText");
+      var options = document.getElementsByClassName("options");
+      var lists = document.getElementById("list");
+      var arrowIcon = document.getElementById("arrowIcon");
+
+      for (option of options) {
+        option.onclick = function () {
+        //   selectText.innerHTML = this.textContent; // this is adding txt only i want image also
+            selectText.innerHTML =''; //clear all content
+            selectText.appendChild(this.cloneNode(true)); //append the complete selected element
+          lists.classList.toggle("hide");
+          arrowIcon.classList.toggle("rotate");
+        };
+      }
+
+      selectField.onclick = function () {
+        lists.classList.toggle("hide"); // this will toggle list id content in page when clicked on selectField.(i.e. id will be removed or added based on toggle)
+        arrowIcon.classList.toggle("rotate");
+      };
+    </script>
+  </body>
+</html>
