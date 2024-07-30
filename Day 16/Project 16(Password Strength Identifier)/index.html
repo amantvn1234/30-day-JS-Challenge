@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Identifier</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="input-box">
+            <input type="password" id="password" placeholder="password">
+            <span class="toggle-password" id="togglePassword">👁️</span>
+            <button type="submit"><img src="arrow.png" id="arrow"></button>
+            <p id="message">Password is <span id="Strength"></span></p>
+        </div>
+        <br>
+        <br>
+        <div class="note">
+            <h3 style="color:lightgreen">Password Strength Criteria:</h3>
+            <ul>
+                <li><b>Weak:</b> Meets only 2 or fewer criteria.</li>
+                <li><b>Medium:</b> Meets 3 criteria.</li>
+                <li><b>Strong:</b> Meets more than 3 criteria.</li>
+            </ul>
+            <br>
+            <p><strong style="color:lightgreen">Criteria:</strong></p>
+            <ol>
+                <li>At least 8 characters</li>
+                <li>Contains lowercase letters</li>
+                <li>Contains uppercase letters</li>
+                <li>Contains numbers</li>
+                <li>Contains special characters</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        var pass = document.getElementById("password");
+        var togglePassword = document.getElementById("togglePassword");
+        var message = document.getElementById("message");
+        var Strength = document.getElementById("Strength");
+        var btn=document.getElementById("arrow");
+
+        pass.addEventListener('input', () => {
+            if (pass.value.length > 0) {
+                message.style.display = "block";
+            } else {
+                message.style.display = "none"; // changing style using JS.
+            }
+
+            var strengthValue = getPasswordStrength(pass.value);
+
+            switch (strengthValue) {
+                case "weak":
+                    Strength.innerHTML = 'weak';
+                    pass.style.borderColor = '#ff5925';
+                    message.style.color = '#ff5925';
+                    break;
+                case "medium":
+                    Strength.innerHTML = 'medium';
+                    pass.style.borderColor = 'yellow';
+                    message.style.color = 'yellow';
+                    break;
+                case "strong":
+                    Strength.innerHTML = 'strong';
+                    pass.style.borderColor = 'green';
+                    message.style.color = 'green';
+                    break;
+            }
+        });
+
+        togglePassword.addEventListener('click', () => {
+            const type = pass.getAttribute('type') === 'password' ? 'text' : 'password';
+            pass.setAttribute('type', type);
+            // Toggle the eye / eye slash icon
+            togglePassword.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+
+        function getPasswordStrength(password) {
+            let strength = 0;
+
+            if (password.length >= 8) strength++;
+            if (/[a-z]/.test(password)) strength++;
+            if (/[A-Z]/.test(password)) strength++;
+            if (/[0-9]/.test(password)) strength++;
+            if (/[^a-zA-Z0-9]/.test(password)) strength++;
+
+            if (strength <= 2) {
+                return "weak";
+            } else if (strength === 3) {
+                return "medium";
+            } else {
+                return "strong";
+            }
+        }
+
+        btn.addEventListener("click",function(){
+            if(getPasswordStrength(pass.value)==="strong"){
+                alert("Your Password is updated");                
+                pass.value='';
+                pass.style.borderColor = '#fff';
+                message.style.color = '#fff';
+                message.style.display = "none";
+            }
+            else{
+                alert("Please enter Strong password first");
+            }
+        })
+    </script>
+</body>
+</html>
