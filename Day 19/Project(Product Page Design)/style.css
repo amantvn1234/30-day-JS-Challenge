@@ -1,0 +1,259 @@
+*{
+    padding:0;
+    margin:0;
+    font-family: 'Poppins',sans-serif;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background: #d0eaff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* added padding */
+}
+
+.product{
+    width: 100%;
+    max-width: 750px;
+    display: flex;
+    flex-direction: row; /* default direction */
+    flex-wrap: wrap; /* allows wrapping */
+}
+
+.gallery{
+    flex-basis: 47%; 
+    background:#241e20;
+    transform: scale(1.08);
+    box-shadow: -10px 5px 10px 10px rgba(0,0,0,0.1);
+    position: relative;   
+    border-radius:5px;
+    margin-bottom: 20px; /* added margin for spacing */
+}
+
+.gallery img{
+    width: 100%;
+    display: block;
+    padding-top: 100px;
+}
+
+.details{
+    flex-basis: 53%;
+    background: #fff;
+    padding: 40px;
+    padding-left: 60px;
+    box-shadow: -10px 5px 10px 10px rgba(0,0,0,0.1);
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;   
+    border-radius:5px;
+    margin-bottom: 20px; /* added margin for spacing */
+}
+
+.details h1{
+    color: #333; 
+    font-size: 35px;
+}
+
+.details h2{
+    color: #555;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.details h3{
+    color: #00d874;
+    margin-bottom: 20px;    
+}
+
+.details form{
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.size-select{
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.size-select p{
+    width: 70px;
+}
+
+/*properties whenever particular input will be selected*/
+.size-select input:checked + span{
+    color: red;
+    font-weight: 600;
+}
+
+.size-select input{
+    display: none;
+}
+
+.size-select span{
+    padding: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.color-select{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.color-select p{
+    width: 75px;
+}
+
+.color-select span{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.color-1{
+    background: red;
+}
+.color-2{
+    background: green;
+}
+.color-3{
+    background: blue;
+}
+.color-4{
+    background: pink;
+}
+
+.color-select input{
+    display: none;
+}
+
+/*properties whenever particular input will be selected*/
+.color-select input:checked +span{
+    transform: scale(0.7);
+    box-shadow: 0 0 0 4px #fff,0 0 0 6px #000;
+}
+
+.quantity-select{
+    display: flex; 
+    align-items: center;
+    margin-top: 20px;
+}
+
+.quantity-select p{
+    width: 75px;
+}
+
+.quantity-select input{
+    background:#eee;
+    border: 0;
+    outline: none;
+    padding:2px 2px 2px 15px;
+    width: 50px;
+    border-radius: 12px;
+}
+
+form button{
+    background: #553ff0;
+    color: #fff;
+    font-size: 17px;
+    width: 100%;
+    height: 50px;
+    border-radius: 30px;
+    border:0;
+    outline: 0;
+    margin-top: 50px;
+    box-shadow: 0 10px 10px rgba(85, 63, 240, 0.25);
+    cursor: pointer;
+}
+
+.controls{
+    position: absolute;
+    bottom:40px;
+    right:20px;
+}
+
+.btn{
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    margin: 10px;
+    cursor: pointer;
+}
+
+.btn.active{
+    background: #553ff0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .product {
+        flex-direction: column; /* stack elements vertically */
+    }
+
+    .gallery {
+        flex-basis: 100%;
+    }
+
+    .details {
+        flex-basis: 100%;
+        padding-left: 40px; /* reduce padding */
+    }
+
+    .details h1 {
+        font-size: 28px;
+    }
+
+    .details h2 {
+        font-size: 24px;
+    }
+
+    .details h3 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .details {
+        padding: 20px;
+        padding-left: 20px;
+    }
+
+    .details h1 {
+        font-size: 24px;
+    }
+
+    .details h2 {
+        font-size: 20px;
+    }
+
+    .details h3 {
+        font-size: 18px;
+    }
+
+    .size-select span, .color-select span {
+        margin-right: 5px;
+    }
+
+    .quantity-select p {
+        width: 50px;
+    }
+
+    .quantity-select input {
+        width: 40px;
+    }
+
+    form button {
+        font-size: 16px;
+        height: 45px;
+    }
+}
