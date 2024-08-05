@@ -1,20 +1,21 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-.container{
+
+.container {
     width: 100%;
     height: 100vh;
     background: #141a34;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
 }
 
-
-.container form{
+.container form {
     width: 90%;
     max-width: 500px;
     padding: 50px 30px 20px;
@@ -23,31 +24,34 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
     position: relative;
 }
-.fa-paper-plane{
+
+.fa-paper-plane {
     position: absolute;
     top: 0;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     background: #fff;
-    color:green;
+    color: green;
     font-size: 26px;
     padding: 20px;
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.input-group{
+.input-group {
     width: 100%;
     display: flex;
     align-items: center;
     margin: 10px 0;
     position: relative;
 }
-.input-group label{
+
+.input-group label {
     flex-basis: 28%;
     color: goldenrod;
 }
-.input-group input, .input-group textarea{
+
+.input-group input, .input-group textarea {
     flex-basis: 68%;
     background: transparent;
     border: 0;
@@ -57,11 +61,12 @@
     color: #333;
     font-size: 16px;
 }
-::placeholder{
+
+::placeholder {
     font-size: 14px;
 }
 
-form button{
+form button {
     background: green;
     color: #fff;
     border-radius: 4px;
@@ -73,18 +78,47 @@ form button{
     margin: 30px auto 10px;
 }
 
-.input-group span{
+.input-group span {
     position: absolute;
-    bottom:12px;
+    bottom: 12px;
     right: 17px;
     font-size: 14px;
-    color:red;
-}
-
-#submit-error{
     color: red;
 }
 
-.input-group span i{
+#submit-error {
+    color: red;
+}
+
+.input-group span i {
     color: green;
+}
+
+@media (max-width: 600px) {
+    .input-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .input-group label {
+        flex-basis: 100%;
+        margin-bottom: 5px;
+    }
+
+    .input-group input, .input-group textarea {
+        flex-basis: 100%;
+    }
+
+    .fa-paper-plane {
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    form {
+        padding: 30px 20px 10px;
+    }
+
+    form button {
+        padding: 10px 20px;
+    }
 }
