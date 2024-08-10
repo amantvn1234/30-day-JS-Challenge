@@ -41,4 +41,4 @@ async function fetchPrices() {
 fetchPrices();
 
 // set an interval to refresh the prices every minute
-setInterval(fetchPrices, 6000);
+setInterval(fetchPrices, 1000);
