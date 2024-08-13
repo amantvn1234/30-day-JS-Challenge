@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+.game-info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+#restartBtn {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#restartBtn:hover {
+    background-color: #0056b3;
+}
+
+.memory-game {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 15px;
+}
+
+.memory-card {
+    width: 100px;
+    height: 100px;
+    background-color: #2e3d49;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: #ffffff;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(0);
+    transition: transform 0.5s, background-color 0.5s;
+}
+
+.memory-card::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #2e3d49;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    z-index: 2;
+}
+
+.memory-card::after {
+    content: "";
+    position: absolute;
+    font-size: 40px;
+    z-index: 1;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+
+.memory-card.flipped {
+    transform: rotateY(180deg);
+}
+
+.memory-card.flipped::after {
+    backface-visibility: visible;
+}
+
+.memory-card[data-card="1"]:after { content: "🍎"; }
+.memory-card[data-card="2"]:after { content: "🍌"; }
+.memory-card[data-card="3"]:after { content: "🍇"; }
+.memory-card[data-card="4"]:after { content: "🍉"; }
+.memory-card[data-card="5"]:after { content: "🍒"; }
+.memory-card[data-card="6"]:after { content: "🍓"; }
